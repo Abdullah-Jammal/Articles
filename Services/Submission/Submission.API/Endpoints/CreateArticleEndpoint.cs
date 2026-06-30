@@ -17,6 +17,7 @@ public static class CreateArticleEndpoint
             .WithName("CreateArticle")
             .WithTags("Articles")
             .Produces(StatusCodes.Status201Created)
+            .ProducesProblem(StatusCodes.Status403Forbidden)
             .ProducesValidationProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status401Unauthorized
         );
