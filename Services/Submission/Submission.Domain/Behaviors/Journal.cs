@@ -4,9 +4,9 @@ namespace Submission.Domain.Entities;
 
 public partial class Journal
 {
-    public Articles CreateArticle(string title, ArticleType type, string scope)
+    public Article CreateArticle(string title, ArticleType type, string scope)
     {
-        var article = new Articles
+        var article = new Article
         {
             Title = title,
             Scope = scope,

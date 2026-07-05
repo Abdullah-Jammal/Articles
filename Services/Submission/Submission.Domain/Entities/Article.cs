@@ -1,10 +1,11 @@
 ﻿using Articles.Abstractions.Enums;
+using Blocks.Domain.Entities;
 
 namespace Submission.Domain.Entities;
 
-public class Articles
+public class Article : IEntity
 {
-    public int Id { get; set; }
+    public int Id { get; init; }
     public required string Title { get; set; }
     public required string Scope { get; set; }
     public required ArticleType Type { get; set; }

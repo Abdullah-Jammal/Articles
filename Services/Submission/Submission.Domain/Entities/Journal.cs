@@ -1,10 +1,12 @@
-﻿namespace Submission.Domain.Entities;
+﻿using Blocks.Domain.Entities;
 
-public partial class Journal
+namespace Submission.Domain.Entities;
+
+public partial class Journal : IEntity
 {
-    public int Id { get; set; }
+    public int Id { get; init; }
     public required string Name { get; set; }
     public required string Abreviation { get; set; }
-    private readonly List<Articles> _articles = new();
-    public IReadOnlyCollection<Articles> Articles => _articles.AsReadOnly();
+    private readonly List<Article> _articles = new();
+    public IReadOnlyCollection<Article> Articles => _articles.AsReadOnly();
 }
