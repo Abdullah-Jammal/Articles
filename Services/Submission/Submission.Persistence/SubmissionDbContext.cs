@@ -5,8 +5,11 @@ namespace Submission.Persistence;
 
 public class SubmissionDbContext(DbContextOptions<SubmissionDbContext> options) : DbContext(options)
 {
-    public virtual DbSet<Article> Articles { get; set; } = null!;
-    public virtual DbSet<Journal> Journals { get; set; } = null!;
+    public virtual DbSet<Article> Articles { get; set; }
+    public virtual DbSet<Journal> Journals { get; set; }
+    public virtual DbSet<Person> Persons { get; set; }
+    public virtual DbSet<ArticleActor> ArticleActors { get; set; }
+    public virtual DbSet<Author> Authors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

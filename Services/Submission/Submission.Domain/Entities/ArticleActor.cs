@@ -9,4 +9,6 @@ public class ArticleActor
     public int PersonId { get; init; }
     public Person Person { get; init; } = null!;
     public UserRoleType Role { get; init; }
+
+    public string TypeDiscriminator { get; init; } = null!;
 }
