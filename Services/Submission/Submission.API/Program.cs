@@ -26,5 +26,4 @@ if (app.Environment.IsDevelopment())
 }
 #endregion
 
-app.MapAllEndpoints();
 app.Run();

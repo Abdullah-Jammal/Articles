@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Blocks.Domain;
 
 namespace Blocks.MediatR.Behaviours;
 
