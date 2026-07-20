@@ -15,15 +15,18 @@ builder.Services
 var app = builder.Build();
 
 #region Use services
-app.UseSwagger()
-    .UseSwaggerUI()
-    .UseRouting();
-app.MapAllEndpoints();
-// todo
-// Create First Migration and Update Database
+app.UseExceptionHandler();
+
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseRouting()
+    .UseAuthentication()
+    .UseAuthorization();
+app.MapAllEndpoints();
 #endregion
 
 app.Run();

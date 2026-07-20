@@ -2,6 +2,17 @@
 
 public interface IAuditableAction
 {
-    DateTime CreatedOn => DateTime.UtcNow;
+    DateTime CreatedOn { get; }
     int CreatedById { get; set; }
+}
+
+public interface ICurrentUser
+{
+    int UserId { get; }
+}
+
+public interface IAuditableAction<TActionType> : IAuditableAction
+    where TActionType : Enum
+{
+    TActionType ActionType { get; }
 }

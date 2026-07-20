@@ -4,9 +4,9 @@ using System.Text.Json;
 
 namespace Blocks.EntityFramework;
 
-public static class BulderExtentions
+public static class BuilderExtensions
 {
-    public static PropertyBuilder<TEnum> HasEnumConversion<TEnum>(this PropertyBuilder<TEnum> builder) 
+    public static PropertyBuilder<TEnum> HasEnumConversion<TEnum>(this PropertyBuilder<TEnum> builder)
         where TEnum : Enum
     {
         return builder.HasConversion(
@@ -15,7 +15,7 @@ public static class BulderExtentions
         );
     }
 
-    public static PropertyBuilder<T> HasJsonCollectionConversion<T>(this PropertyBuilder<T> builder) 
+    public static PropertyBuilder<T> HasJsonCollectionConversion<T>(this PropertyBuilder<T> builder)
     {
         return builder.HasConversion(BuildJsonListConvertor<T>());
     }

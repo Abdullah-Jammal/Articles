@@ -8,11 +8,12 @@ public static class RepositoryExtensions
 {
     public static async Task<TEntity> FindByIdOrThrowAsync<TContext, TEntity>(
         this Repository<TContext, TEntity> repository,
-        int id)
+        int id,
+        CancellationToken cancellationToken = default)
         where TContext : DbContext
         where TEntity : class, IEntity
     {
-        var entity = await repository.FindByIdAsync(id);
+        var entity = await repository.FindByIdAsync(id, cancellationToken);
 
         if (entity is null)
         {

@@ -14,8 +14,8 @@ internal class ArticleActorEntityConfiguration : IEntityTypeConfiguration<Articl
         builder.Property(e => e.Role).HasEnumConversion().HasDefaultValue(UserRoleType.AUT);
 
         builder.HasDiscriminator(e => e.TypeDiscriminator)
-            .HasValue(nameof(ArticleActor))
-            .HasValue(nameof(ArticleAuthor));
+            .HasValue<ArticleActor>(nameof(ArticleActor))
+            .HasValue<ArticleAuthor>(nameof(ArticleAuthor));
 
         builder.HasOne(e => e.Article)
             .WithMany(a => a.Actors)

@@ -4,7 +4,7 @@ namespace Blocks.Exceptions;
 
 public class HttpException : Exception
 {
-    public HttpException(HttpStatusCode statusCode, string message) 
+    public HttpException(HttpStatusCode statusCode, string message)
         : base(string.IsNullOrEmpty(message) ? statusCode.ToString() : message)
     {
         this.HttpStatusCode = statusCode;

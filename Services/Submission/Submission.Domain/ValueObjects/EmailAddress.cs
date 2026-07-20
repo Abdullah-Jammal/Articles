@@ -21,4 +21,6 @@ public class EmailAddress
         const string emailRegex = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
         return Regex.IsMatch(email, emailRegex);
     }
+
+    public override string ToString() => Value;
 }

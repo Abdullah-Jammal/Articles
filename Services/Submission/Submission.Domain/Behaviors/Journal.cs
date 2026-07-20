@@ -12,7 +12,8 @@ public partial class Journal
             Scope = scope,
             Type = type,
             Stage = ArticleStage.Created,
-            Journal = this
+            Journal = this,
+            JournalId = Id
         };
         _articles.Add(article);
         return article;
