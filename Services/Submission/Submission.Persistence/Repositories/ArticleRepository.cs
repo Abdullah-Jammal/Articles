@@ -24,4 +24,12 @@ public class ArticleRepository(SubmissionDbContext context)
         var author = await Context.Authors.FindAsync([id], cancellationToken);
         return author ?? throw new NotFoundException($"Author with id {id} was not found.");
     }
+
+    public async Task<Author> GetAuthorByUserIdOrThrowAsync(int userId, CancellationToken cancellationToken = default)
+    {
+        var author = await Context.Authors
+            .SingleOrDefaultAsync(author => author.UserId == userId, cancellationToken);
+
+        return author ?? throw new NotFoundException($"No author profile is linked to user {userId}.");
+    }
 }

@@ -6,6 +6,7 @@ public static class EndpointRegistration
     {
         CreateArticleEndpoint.Map(app);
         AssignAuthorEndpoint.Map(app);
+        CreateAndAssignAuthorEndpoint.Map(app);
         return app;
     }
 }
