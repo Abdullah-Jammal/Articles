@@ -1,11 +1,9 @@
-﻿using Blocks.Core;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Submission.Domain.ValueObjects;
 
-public class EmailAddress
+public class EmailAddress : StringValueObject
 {
-    public string Value { get; private set; }
     private EmailAddress(string value) => Value = value;
 
     public static EmailAddress Create(string value)
