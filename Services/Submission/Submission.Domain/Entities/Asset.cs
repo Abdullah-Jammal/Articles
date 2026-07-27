@@ -2,9 +2,8 @@
 
 namespace Submission.Domain.Entities;
 
-public class Asset : IEntity
+public class Asset : Entity
 {
-    public int Id { get; init; }
     public AssetName Name { get; private set; } = null!;
     public AssetType AssetType { get; private set; }
     public int ArticleId { get; private set; }

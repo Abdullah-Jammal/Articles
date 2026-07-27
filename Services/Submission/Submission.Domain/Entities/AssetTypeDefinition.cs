@@ -1,9 +1,11 @@
-﻿namespace Submission.Domain.Entities;
+﻿using Blocks.Domain.Entities;
 
-public class AssetTypeDefinition
+namespace Submission.Domain.Entities;
+
+public class AssetTypeDefinition : EnumEntity<AssetType>
 {
-    public AssetType Id { get; init; }
-    public byte MaxFileSizeInMB { get; set; }
-    public string DefaultFileExtension { get; set; } = default!;
-    public string AllowedFileExtension { get; set; }
+    public required byte MaxFileSizeInMB { get; init; }
+    public int MaxFileSizeInByte => (MaxFileSizeInMB * 1024 * 1024);
+    public required string DefaultFileExtension { get; init; } = default!;
+    public required FileExtensions AllowedFileExtension { get; init; }
 }
