@@ -1,5 +1,4 @@
-﻿using Articles.Abstractions.Enums;
-using Blocks.Domain;
+﻿using Blocks.Domain;
 
 namespace Submission.Domain.Entities;
 
@@ -20,12 +19,24 @@ public partial class Article
 
         Actors.Add(new ArticleAuthor()
         {
-            Article = this,
-            ArticleId = Id,
-            ContributionAreas = [.. contributionAreas],
+            ContributionAreas = contributionAreas,
             Person = author,
-            PersonId = author.Id,
             Role = role,
         });
+    }
+
+    public Asset CreateAsset(AssetTypeDefinition type)
+    {
+        ArgumentNullException.ThrowIfNull(type);
+
+        var assetCount = assets.Count(asset => asset.Type == type.Name);
+
+        if (assetCount >= type.MaxAssetCount)
+            throw new DomainException(
+                $"The maximum number of files allowed for {type.Name} was already reached.");
+
+        var asset = Asset.Create(this, type);
+        assets.Add(asset);
+        return asset;
     }
 }

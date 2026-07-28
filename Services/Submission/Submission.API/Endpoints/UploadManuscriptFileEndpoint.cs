@@ -26,5 +26,7 @@ public static class UploadManuscriptFileEndpoint
         .ProducesProblem(StatusCodes.Status500InternalServerError)
         .ProducesProblem(StatusCodes.Status503ServiceUnavailable)
         .DisableAntiforgery();
+
+        return app;
     }
 }
