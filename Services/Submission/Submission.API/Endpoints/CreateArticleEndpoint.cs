@@ -9,10 +9,10 @@ public static class CreateArticleEndpoint
 {
     public static void Map(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/articles", async (CreateArticleCommand command, ISender sender, CancellationToken cancellationToken) =>
+        app.MapPost("/articles", async (CreateArticleCommand command, ISender sender, CancellationToken cancellationToken) =>
         {
             var response = await sender.Send(command, cancellationToken);
-            return Results.Created($"/api/articles/{response.Id}", response);
+            return Results.Created($"/articles/{response.Id}", response);
         }
         )
             .RequireRoleAuthorization(Roles.AUT)

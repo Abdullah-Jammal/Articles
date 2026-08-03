@@ -18,4 +18,12 @@ public static class ConfigurationExtensions
             .ValidateOnStart();
         return services;
     }
+
+    public static string GetConnectionStringOrThrow(this IConfiguration configuration, string name)
+    {
+        var value = configuration.GetConnectionString(name);
+        if (string.IsNullOrWhiteSpace(value))
+            throw new InvalidOperationException($"Connection string '{name}' is not found in the configuration.");
+        return value;
+    }
 }

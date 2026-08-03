@@ -1,4 +1,7 @@
-﻿namespace Submission.API;
+﻿using FileStorage.MongoGridFS;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+namespace Submission.API;
 
 public static class DependencyInjection
 {
@@ -8,7 +11,7 @@ public static class DependencyInjection
         services.AddScoped<Blocks.Domain.ICurrentUser, Article.Security.HttpCurrentUser>();
 
         services
-            .AddAuthentication(Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options => configuration.GetSection("Authentication").Bind(options));
 
         services
@@ -18,6 +21,8 @@ public static class DependencyInjection
             .AddExceptionHandler<ApiExceptionHandler>()
             .AddEndpointsApiExplorer()
             .AddSwaggerGen();
+
+        services.AddMongoFsFileStorage(configuration);
 
         return services;
     }

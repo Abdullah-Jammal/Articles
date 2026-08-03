@@ -38,7 +38,7 @@ public class FileService : IFileService
         ObjectId fileId;
         using (var stream = file.OpenReadStream())
         {
-            await _bucket.UploadFromStreamAsync(file.FileName, stream, uploadOptions);
+            fileId = await _bucket.UploadFromStreamAsync(file.FileName, stream, uploadOptions);
         }
 
         return new UploadResponse
@@ -55,11 +55,11 @@ public class FileService : IFileService
         if (!ObjectId.TryParse(fileId, out var objectId))
             throw new FileNotFoundException("Invalid file ID format.", nameof(fileId));
 
-        var fileInfo = await _bucket.Find(Builders<GridFSFileInfo>.Filter.Eq("_id", fileId)).FirstOrDefaultAsync();
+        var fileInfo = await _bucket.Find(Builders<GridFSFileInfo>.Filter.Eq("_id", objectId)).FirstOrDefaultAsync();
         if (fileInfo == null)
             throw new FileNotFoundException("File not found.", nameof(fileId));
 
-        var stream = await _bucket.OpenDownloadStreamAsync(fileId);
+        var stream = await _bucket.OpenDownloadStreamAsync(objectId);
         var contentType = fileInfo.Metadata?.GetValue(ContentTypeMetadataKey)?.AsString ?? "application/octet-stream";
         return (stream, contentType);
     }
@@ -71,7 +71,7 @@ public class FileService : IFileService
 
         try
         {
-            await _bucket.DeleteAsync(fileId);
+            await _bucket.DeleteAsync(objectId);
             return true;
         }
         catch (GridFSFileNotFoundException)

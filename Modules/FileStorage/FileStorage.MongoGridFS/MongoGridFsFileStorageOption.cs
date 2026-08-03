@@ -4,9 +4,13 @@ namespace FileStorage.MongoGridFS;
 
 public class MongoGridFsFileStorageOption
 {
+    public const string SectionName = "MongoGridFsFileStorageOptions";
+
     [Required]
-    public string ConnectionString { get; init; } = default!;
+    public string ConnectionStringName { get; init; } = default!;
+    [Required]
     public string DatabaseName { get; init; } = default!;
+    [Required]
     public string BucketName { get; init; } = "files";
     public int ChunkSizeBytes { get; init; } = 1048576;
     public long FileSizeLimitInMB { get; init; } = 50;

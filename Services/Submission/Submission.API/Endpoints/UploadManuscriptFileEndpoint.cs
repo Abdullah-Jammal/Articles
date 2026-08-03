@@ -11,15 +11,15 @@ public static class UploadManuscriptFileEndpoint
 {
     public static IEndpointRouteBuilder Map(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/articles/{articleId:int}/assets/manuscript:upload",
+        app.MapPost("/articles/{articleId:int}/assets/manuscript:upload",
             async ([FromRoute] int articleId, [FromForm] UploadManuscriptFileCommand command, ISender sender) =>
             {
                 var response = await sender.Send(command with { ArticleId = articleId });
-                return Results.Created($"/api/articles/{articleId}/assets/manuscript", response);
+                return Results.Created($"/articles/{articleId}/assets/manuscript", response);
             })
         .RequireRoleAuthorization(Roles.CORAUT)
         .WithName("UploadManuscriptFile")
-        .WithTags("Submission")
+        .WithTags("Assets")
         .Produces<IdResponse>(StatusCodes.Status201Created)
         .ProducesProblem(StatusCodes.Status400BadRequest)
         .ProducesProblem(StatusCodes.Status404NotFound)

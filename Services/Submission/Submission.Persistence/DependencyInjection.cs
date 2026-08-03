@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Submission.Persistence.Repositories;
+using Submission.Domain.Entities;
+using Blocks.EntityFramework;
 
 namespace Submission.Persistence;
 
@@ -15,6 +17,7 @@ public static class DependencyInjection
         services.AddDbContext<SubmissionDbContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped(typeof(Repository<>));
         services.AddScoped(typeof(ArticleRepository));
+        services.AddScoped<CachedRepository<SubmissionDbContext, AssetTypeDefinition, int>>();
         return services;
     }
 }

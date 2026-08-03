@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Article.Security\Article.Security.csproj" />
+    <ProjectReference Include="..\..\..\Modules\FileStorage\FileStorage.MongoGridFS\FileStorage.MongoGridFS.csproj" />
     <ProjectReference Include="..\Submission.Application\Submission.Application.csproj" />
   </ItemGroup>
 

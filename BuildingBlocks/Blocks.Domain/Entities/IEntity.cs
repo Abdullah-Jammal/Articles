@@ -11,7 +11,7 @@ public interface IEntity<TPrimaryKey>
     TPrimaryKey Id { get; }
 }                   
 
-public abstract class Entity : IEntity
+public abstract class Entity : IEntity, IEntity<int>
 {
     public virtual int Id { get; init; }
 }
