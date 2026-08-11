@@ -4,7 +4,8 @@ using Blocks.Exceptions;
 
 namespace Submission.Application.Features.CreateArticle;
 
-internal class CreateArticleCommandHandler(Repository<Journal> journalRepository) : IRequestHandler<CreateArticleCommand, IdResponse>
+internal class CreateArticleCommandHandler(Repository<Journal> journalRepository) 
+    : IRequestHandler<CreateArticleCommand, IdResponse>
 {
     public async Task<IdResponse> Handle(CreateArticleCommand command, CancellationToken ct)
     {
