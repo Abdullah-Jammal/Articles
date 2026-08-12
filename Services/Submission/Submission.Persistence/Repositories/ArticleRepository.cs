@@ -1,10 +1,9 @@
 ﻿using Blocks.EntityFramework;
 using Submission.Domain.Entities;
-
-namespace Submission.Persistence.Repositories;
-
 using Blocks.Exceptions;
 using Microsoft.EntityFrameworkCore;
+
+namespace Submission.Persistence.Repositories;
 
 public class ArticleRepository(SubmissionDbContext context)
     : Repository<SubmissionDbContext, Article>(context)

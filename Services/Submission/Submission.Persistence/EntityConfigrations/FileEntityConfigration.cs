@@ -20,11 +20,11 @@ internal class FileEntityConfigration
         );
 
         builder.ComplexProperty(
-    o => o.Name, complexBuilder =>
-    {
-        complexBuilder.Property(n => n.Value)
-        .HasColumnName("Value");
-    }
-);
+            o => o.Name, complexBuilder =>
+            {
+                complexBuilder.Property(n => n.Value)
+                .HasColumnName("Value");
+            }
+        );
     }
 }

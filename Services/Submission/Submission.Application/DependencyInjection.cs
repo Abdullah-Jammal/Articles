@@ -1,11 +1,4 @@
-﻿using Blocks.MediatR.Behaviours;
-using FluentValidation;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Submission.Application.Features.CreateArticle;
-using System.Reflection;
-
-namespace Submission.Application;
+﻿namespace Submission.Application;
 
 public static class DependencyInjection
 {

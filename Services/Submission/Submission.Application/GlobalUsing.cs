@@ -12,3 +12,9 @@ global using Submission.Domain.Enums;
 global using Submission.Domain.Entities;
 
 global using Submission.Persistence.Repositories;
+
+global using Blocks.MediatR.Behaviours;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Submission.Application.Features.CreateArticle;
+global using System.Reflection;

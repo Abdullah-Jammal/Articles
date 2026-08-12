@@ -4,6 +4,7 @@ namespace Submission.Domain.Entities;
 
 public partial class Article
 {
+    // HashSet : is used because it does not allow duplicate values.
     public void AssignAuthor(Author author, HashSet<ContributionArea> contributionAreas, bool isCorrespondingAuthor)
     {
         ArgumentNullException.ThrowIfNull(author);
