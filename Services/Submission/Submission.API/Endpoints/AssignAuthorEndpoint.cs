@@ -18,7 +18,7 @@ public static class AssignAuthorEndpoint
                 cancellationToken);
             return Results.Ok(response);
         })
-        .RequireRoleAuthorization(Roles.CORAUT)
+        .RequireRoleAuthorization(Role.CORAUT)
         .WithName("AssignAuthor")
         .WithTags("Articles")
         .WithSummary("Assigns an author to a submission.")

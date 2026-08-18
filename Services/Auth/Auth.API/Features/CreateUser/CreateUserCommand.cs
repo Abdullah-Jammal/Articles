@@ -1,6 +1,8 @@
-﻿namespace Auth.API.Features.CreateUser;
+﻿using Articles.Abstractions.Enums;
 
-public class CreactUserCommand
+namespace Auth.API.Features.CreateUser;
+
+public class CreateUserCommand
 {
     public required string Email { get; init; }
     public required string FirstName { get; init; }
@@ -20,4 +22,10 @@ public record UserRoleDto
     UserRoleType Type,
     DateTime? StartDate,
     DateTime? ExpiringDate
+);
+
+public record CreateUserResponse(
+    string Email,
+    int UserId,
+    string Token
 );

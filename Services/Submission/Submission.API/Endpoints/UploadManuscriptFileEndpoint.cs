@@ -17,7 +17,7 @@ public static class UploadManuscriptFileEndpoint
                 var response = await sender.Send(command with { ArticleId = articleId });
                 return Results.Created($"/articles/{articleId}/assets/manuscript", response);
             })
-        .RequireRoleAuthorization(Roles.CORAUT)
+        .RequireRoleAuthorization(Role.CORAUT)
         .WithName("UploadManuscriptFile")
         .WithTags("Assets")
         .Produces<IdResponse>(StatusCodes.Status201Created)

@@ -15,7 +15,7 @@ public static class CreateArticleEndpoint
             return Results.Created($"/articles/{response.Id}", response);
         }
         )
-            .RequireRoleAuthorization(Roles.AUT)
+            .RequireRoleAuthorization(Role.AUT)
             .WithName("CreateArticle")
             .WithTags("Articles")
             .Produces(StatusCodes.Status201Created)
