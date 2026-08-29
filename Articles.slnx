@@ -9,6 +9,9 @@
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" Id="a2dbebdf-4702-4711-a0cd-b036200c4c4a" />
   </Folder>
   <Folder Name="/Modules/" />
+  <Folder Name="/Modules/EmailService/">
+    <Project Path="src/Modules/EmailService/EmailService.Contracts/EmailService.Contracts.csproj" Id="396f61fb-80cb-4886-9c3f-45c17a43517b" />
+  </Folder>
   <Folder Name="/Modules/FileStorage/">
     <Project Path="Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" Id="fd3faff1-6d4c-4dc6-b00f-f1a4a9724c26" />
     <Project Path="Modules/FileStorage/FileStorage.MongoGridFS/FileStorage.MongoGridFS.csproj" Id="fc536e93-2d49-4757-afc3-f2d2a611b227" />
