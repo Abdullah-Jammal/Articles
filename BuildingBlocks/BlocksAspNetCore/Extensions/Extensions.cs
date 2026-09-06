@@ -19,4 +19,20 @@ public static class Extensions
         }
         return userBuilder.Uri.AbsoluteUri;
     }
+
+    public static string GetClientIpAddress(this HttpContext context)
+    {
+        if (context == null) throw new ArgumentNullException(nameof(context));
+        // Check for X-Forwarded-For header first (in case of reverse proxy)
+        if (context.Request.Headers.TryGetValue("X-Forwarded-For", out var forwardedFor))
+        {
+            var ip = forwardedFor.FirstOrDefault()?.Split(',').FirstOrDefault()?.Trim();
+            if (!string.IsNullOrEmpty(ip))
+            {
+                return ip;
+            }
+        }
+        // Fallback to the remote IP address
+        return context.Connection.RemoteIpAddress?.ToString() ?? "Unknown";
+    }
 }

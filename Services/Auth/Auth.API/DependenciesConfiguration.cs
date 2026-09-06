@@ -1,6 +1,4 @@
 using IdentityRole = Auth.Domain.Role.Role;
-using Auth.Domain.Users;
-using FastEndpoints;
 using FastEndpoints.Swagger;
 using System.Security.Claims;
 using Article.Security;
@@ -14,6 +12,7 @@ public static class DependenciesConfiguration
 {
     public static IServiceCollection ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddAndValidateOptions<JwtOptions>(configuration);
         return services;
     }
 
