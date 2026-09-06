@@ -23,7 +23,7 @@ public class SmtpEmailService : IEmailService
             await stmpClient.AuthenticateAsync(_emailOptions.Smtp.UserName, _emailOptions.Smtp.Password, ct);
             await stmpClient.SendAsync(message);
         }
-        catch(Exception ex)
+        catch(Exception)
         {
             // to do: log error
             return false;

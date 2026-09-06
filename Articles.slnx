@@ -7,6 +7,7 @@
     <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" Id="766730aa-7b22-48da-9b38-f1ea049d8aee" />
     <Project Path="buildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" Id="07840798-ea9e-4d78-8724-7771ea28e0a3" />
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" Id="a2dbebdf-4702-4711-a0cd-b036200c4c4a" />
+    <Project Path="BuildingBlocks/BlocksAspNetCore/Blocks.AspNetCore.csproj" Id="cbd0f1c8-1188-4cca-8a45-ee0eace6242e" />
   </Folder>
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/EmailService/">
