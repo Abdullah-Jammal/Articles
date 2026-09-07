@@ -15,7 +15,7 @@ public class CreateUserCommandValidator : Validator<CreateUserCommand>
 
     public static bool AreUserRoleDatesValid(IReadOnlyList<UserRoleDto> roles)
     {
-        return roles.All(role => 
+        return roles.All(role =>
         (!role.StartDate.HasValue || role.StartDate.Value >= DateTime.UtcNow.Date) &&
         (!role.ExpiringDate.HasValue || role.ExpiringDate.Value > DateTime.UtcNow) &&
         (!role.StartDate.HasValue || !role.ExpiringDate.HasValue || role.StartDate.Value < role.ExpiringDate.Value)

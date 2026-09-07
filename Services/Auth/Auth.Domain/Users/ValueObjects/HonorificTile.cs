@@ -15,7 +15,7 @@ public class HonorificTile : StringValueObject
     }
     public static HonorificTile Create(Honorific? honorific)
     {
-        if(honorific is null)
+        if (honorific is null)
         {
             return new HonorificTile(string.Empty);
         }

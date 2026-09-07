@@ -6,7 +6,7 @@ public abstract class ValueObject : IEquatable<ValueObject>
 
     public bool Equals(ValueObject? other)
     {
-        if(other is null || GetType() != other.GetType())
+        if (other is null || GetType() != other.GetType())
             return false;
 
         return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());

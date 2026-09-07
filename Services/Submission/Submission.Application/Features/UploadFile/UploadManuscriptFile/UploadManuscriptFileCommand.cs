@@ -13,7 +13,7 @@ public record UploadManuscriptFileCommand : ArticleCommand
     public override ArticleActionType ActionType => ArticleActionType.Upload;
 }
 
-public class UploadManuscriptFileCommandValidator : ArticleCommandValidator<UploadManuscriptFileCommand>    
+public class UploadManuscriptFileCommandValidator : ArticleCommandValidator<UploadManuscriptFileCommand>
 {
     public UploadManuscriptFileCommandValidator()
     {

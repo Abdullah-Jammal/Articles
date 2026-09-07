@@ -1,6 +1,7 @@
 ﻿using Articles.Abstractions.Enums;
 using Auth.Domain.Users.Events;
 using Blocks.Exceptions;
+using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,7 +9,7 @@ namespace Auth.API.Features.CreateUser;
 
 [Authorize(Roles = Role.USERADMIN)]
 [HttpPost("users")]
-public class CreateUserEndpoint(UserManager<User> userManager) 
+public class CreateUserEndpoint(UserManager<User> userManager)
     : Endpoint<CreateUserCommand, CreateUserResponse>
 {
     public override async Task HandleAsync(CreateUserCommand req, CancellationToken ct)
@@ -23,7 +24,7 @@ public class CreateUserEndpoint(UserManager<User> userManager)
 
         var result = await userManager.CreateAsync(user);
 
-        if(!result.Succeeded)
+        if (!result.Succeeded)
         {
             var errorMessages = string.Join(", ", result.Errors.Select(e => e.Description));
             throw new BadRequestException($"Failed to create user: {errorMessages}");

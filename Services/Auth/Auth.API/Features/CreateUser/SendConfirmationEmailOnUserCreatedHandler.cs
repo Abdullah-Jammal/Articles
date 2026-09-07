@@ -1,9 +1,8 @@
-﻿using Flurl;
-using Auth.Domain.Users;
-using Auth.Domain.Users.Events;
+﻿using Auth.Domain.Users.Events;
 using Blocks.AspNetCore;
 using EmailService.Contracts;
 using FastEndpoints;
+using Flurl;
 using Microsoft.Extensions.Options;
 
 namespace Auth.API.Features.CreateUser;

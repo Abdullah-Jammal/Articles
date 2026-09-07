@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Articles.Abstractions.Enums;
+﻿using Articles.Abstractions.Enums;
+using MediatR;
 
 namespace Submission.API.Endpoints;
 

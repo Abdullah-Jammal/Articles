@@ -15,7 +15,7 @@ public class LoginEndpoint(UserManager<User> userManager,
     public override async Task HandleAsync(LoginCommand command, CancellationToken ct)
     {
         var user = await userManager.FindByEmailAsync(command.Email);
-        if(user is null)
+        if (user is null)
             ThrowError("Invalid email or password.", (int)HttpStatusCode.BadRequest);
 
         var result = await signInManager.CheckPasswordSignInAsync(user, command.Password, lockoutOnFailure: false);

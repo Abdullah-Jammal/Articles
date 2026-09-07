@@ -1,6 +1,3 @@
-﻿global using FluentValidation;
-global using FastEndpoints;
-
+﻿global using Auth.Domain.Users;
 global using Blocks.Core;
-
-global using Auth.Domain.Users;
+global using FluentValidation;

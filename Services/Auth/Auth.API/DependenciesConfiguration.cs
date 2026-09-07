@@ -1,11 +1,11 @@
-using IdentityRole = Auth.Domain.Role.Role;
-using FastEndpoints.Swagger;
-using System.Security.Claims;
 using Article.Security;
-using EmailService.Smtp;
-using Auth.Persistence;
 using Auth.Application;
+using Auth.Persistence;
+using EmailService.Smtp;
+using FastEndpoints.Swagger;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using IdentityRole = Auth.Domain.Role.Role;
 
 namespace Auth.API;
 
