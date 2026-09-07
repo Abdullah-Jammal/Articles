@@ -1,8 +1,6 @@
 ﻿using Articles.Abstractions.Enums;
-using Auth.Domain.Users;
 using Auth.Domain.Users.Events;
 using Blocks.Exceptions;
-using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -21,7 +19,7 @@ public class CreateUserEndpoint(UserManager<User> userManager)
             throw new BadRequestException($"User with email {req.Email} already exists.");
         }
 
-        user = Auth.Domain.Users.User.Create(req);
+        user = Domain.Users.User.Create(req);
 
         var result = await userManager.CreateAsync(user);
 

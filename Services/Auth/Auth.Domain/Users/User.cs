@@ -16,9 +16,9 @@ public partial class User : IdentityUser<int>, IEntity
     public string? PictureUrl { get; set; }
     public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
     public DateTime? LastLogin { get; set; }
-
-    public List<RefreshToken> RefreshToken { get; set; } = new List<RefreshToken>();
-
-    private List<UserRole> _userRoles = new List<UserRole>();
+    private List<UserRole> _userRoles = new();
     public virtual IReadOnlyList<UserRole> UserRoles => _userRoles;
+
+    private List<RefreshToken> _refreshTokens = new();
+    public virtual IReadOnlyList<RefreshToken> RefreshTokens => _refreshTokens;
 }

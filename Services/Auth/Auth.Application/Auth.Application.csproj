@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Article.Security\Article.Security.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blocks.Core\Blocks.Core.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BlocksAspNetCore\Blocks.AspNetCore.csproj" />
+    <ProjectReference Include="..\Auth.Domain\Auth.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

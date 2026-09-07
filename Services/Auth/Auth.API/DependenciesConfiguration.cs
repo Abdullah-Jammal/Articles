@@ -4,6 +4,7 @@ using System.Security.Claims;
 using Article.Security;
 using EmailService.Smtp;
 using Auth.Persistence;
+using Auth.Application;
 using Microsoft.AspNetCore.Identity;
 
 namespace Auth.API;
@@ -18,6 +19,9 @@ public static class DependenciesConfiguration
 
     public static IServiceCollection AddApiService(this IServiceCollection services, IConfiguration config)
     {
+        services.AddHttpContextAccessor();
+        services.AddScoped<TokenFactory>();
+
         services.AddFastEndpoints()
             .SwaggerDocument()
             .AddEndpointsApiExplorer()
