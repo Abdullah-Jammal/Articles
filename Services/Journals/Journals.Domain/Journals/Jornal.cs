@@ -4,7 +4,7 @@ using Redis.OM.Modeling;
 namespace Journals.Domain.Journals;
 
 [Document(StorageType = StorageType.Json)]
-public class Jornals : Entity
+public class Journal : Entity
 {
     [Indexed]
     public required string Name { get; set; }

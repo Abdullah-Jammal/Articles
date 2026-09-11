@@ -6,5 +6,5 @@ public class Entity
 {
     [RedisIdField]
     [Indexed]
-    public int Id { get; init; }
+    public int Id { get; set; }
 }
