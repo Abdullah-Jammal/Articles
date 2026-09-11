@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Blocks.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using Submission.Persistence.Repositories;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Submission.Domain.Entities;
-using Blocks.EntityFramework;
+using Submission.Persistence.Repositories;
 
 namespace Submission.Persistence;
 

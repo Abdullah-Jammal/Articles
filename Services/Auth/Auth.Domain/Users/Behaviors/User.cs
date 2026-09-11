@@ -7,7 +7,7 @@ public partial class User
 {
     public static User Create(IUserCreationInfo userInfo)
     {
-        if(userInfo.UserRoles.IsNullOrEmpty())
+        if (userInfo.UserRoles.IsNullOrEmpty())
         {
             throw new ArgumentException("User must have at least one role assigned.", nameof(userInfo.UserRoles));
         }
@@ -26,5 +26,10 @@ public partial class User
         };
 
         return user;
+    }
+
+    public void AddRefreshToken(RefreshToken refreshToken)
+    {
+        _refreshTokens.Add(refreshToken);
     }
 }

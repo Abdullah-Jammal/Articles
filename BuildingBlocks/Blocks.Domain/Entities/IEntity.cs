@@ -9,7 +9,7 @@ public interface IEntity<TPrimaryKey>
     where TPrimaryKey : struct
 {
     TPrimaryKey Id { get; }
-}                   
+}
 
 public abstract class Entity : IEntity, IEntity<int>
 {

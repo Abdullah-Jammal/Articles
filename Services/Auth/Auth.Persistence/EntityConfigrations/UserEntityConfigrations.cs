@@ -33,5 +33,8 @@ internal class UserEntityConfigrations : EntityConfigration<User>
 
         builder.HasMany(u => u.UserRoles)
                .WithOne().HasForeignKey(u => u.UserId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.RefreshTokens)
+               .WithOne().HasForeignKey(u => u.UserId).IsRequired().OnDelete(DeleteBehavior.Cascade);
     }
 }

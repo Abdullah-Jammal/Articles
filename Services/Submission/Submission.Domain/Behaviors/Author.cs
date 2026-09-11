@@ -1,6 +1,4 @@
-﻿using Submission.Domain.ValueObjects;
-
-namespace Submission.Domain.Entities;
+﻿namespace Submission.Domain.Entities;
 
 public partial class Author
 {

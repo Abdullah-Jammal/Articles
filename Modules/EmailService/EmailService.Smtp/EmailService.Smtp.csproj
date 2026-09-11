@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BuildingBlocks\Article.Security\Article.Security.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Blocks.Core\Blocks.Core.csproj" />
-    <ProjectReference Include="..\..\..\BuildingBlocks\BlocksAspNetCore\Blocks.AspNetCore.csproj" />
-    <ProjectReference Include="..\Auth.Domain\Auth.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\EmailService\EmailService.Contracts\EmailService.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.17.0" />
   </ItemGroup>
 
 </Project>

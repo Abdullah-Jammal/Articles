@@ -16,7 +16,7 @@ internal class FileEntityConfigration
             {
                 complexBuilder.Property(n => n.Value)
                 .HasColumnName("Value");
-            }    
+            }
         );
 
         builder.ComplexProperty(

@@ -20,7 +20,7 @@ public class FileService : IFileService
     public async Task<UploadResponse> UploadFileAsync(string filePath,
        IFormFile file, bool overwrite = false, Dictionary<string, string>? tags = null)
     {
-        if(file.Length > _options.FileSizeLimitInBytes)
+        if (file.Length > _options.FileSizeLimitInBytes)
             throw new InvalidOperationException($"File size exceeds the limit of {_options.FileSizeLimitInBytes} bytes.");
 
         var metadata = new BsonDocument(tags ?? new Dictionary<string, string>())
@@ -28,7 +28,7 @@ public class FileService : IFileService
             { FilePathMetadataKey, filePath },
             { ContentTypeMetadataKey, file.ContentType }
         };
-        
+
         var uploadOptions = new GridFSUploadOptions
         {
             Metadata = metadata,

@@ -10,13 +10,20 @@
 
   <ItemGroup>
     <PackageReference Include="FastEndpoints.Swagger" Version="8.2.0" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.2-preview.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Article.Security\Article.Security.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Articles.Abstractions\Articles.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\buildingBlocks\Blocks.Exceptions\Blocks.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BlocksAspNetCore\Blocks.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\Modules\EmailService\EmailService.Smtp\EmailService.Smtp.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\EmailService\EmailService.Contracts\EmailService.Contracts.csproj" />
     <ProjectReference Include="..\Auth.Domain\Auth.Domain.csproj" />
+    <ProjectReference Include="..\Auth.Application\Auth.Application.csproj" />
+    <ProjectReference Include="..\Auth.Persistence\Auth.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

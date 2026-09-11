@@ -1,6 +1,6 @@
 ﻿namespace Submission.Application.Features.CreateAndAssignAuthor;
 
-public class CreateAndAssignAuthorCommandHandler(ArticleRepository articleRepository) 
+public class CreateAndAssignAuthorCommandHandler(ArticleRepository articleRepository)
     : IRequestHandler<CreateAndAssignAuthorCommand, IdResponse>
 {
     public async Task<IdResponse> Handle(CreateAndAssignAuthorCommand command, CancellationToken ct)

@@ -1,7 +1,7 @@
 ﻿using Blocks.EntityFramework;
-using Submission.Domain.Entities;
 using Blocks.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using Submission.Domain.Entities;
 
 namespace Submission.Persistence.Repositories;
 

@@ -1,10 +1,10 @@
 ﻿using Blocks.EntityFramework;
-using Microsoft.EntityFrameworkCore;
 using Blocks.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Submission.Application.Features.CreateArticle;
 
-internal class CreateArticleCommandHandler(Repository<Journal> journalRepository) 
+internal class CreateArticleCommandHandler(Repository<Journal> journalRepository)
     : IRequestHandler<CreateArticleCommand, IdResponse>
 {
     public async Task<IdResponse> Handle(CreateArticleCommand command, CancellationToken ct)

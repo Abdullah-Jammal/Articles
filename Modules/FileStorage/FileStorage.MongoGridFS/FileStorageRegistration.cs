@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Blocks.Core;
+using FileStorage.Contracts;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using Blocks.Core;
 using MongoDB.Driver.GridFS;
-using FileStorage.Contracts;
 
 namespace FileStorage.MongoGridFS;
 
