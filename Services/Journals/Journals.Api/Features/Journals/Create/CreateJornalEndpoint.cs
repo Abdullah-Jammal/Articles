@@ -31,7 +31,6 @@ public class CreateJornalEndpoint
 
         await journalRepository.AddAsync(journal);
         await journalRepository.SaveAllAsync();
-
         await PublishAsync(new JournalCreated(journal));
         await Send.OkAsync(new IdResponse(journal.Id), cancellation: ct);
     }

@@ -1,0 +1,49 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Auth.Grpc";
+
+package auth;
+
+enum Honorific {
+  Mr = 0;
+  Mrs = 1;
+  Dr = 2;
+  Prof = 3;
+}
+
+enum Gender {
+  NotDeclared = 0;
+  Male = 1;
+  Female = 2;
+  Natural = 3;
+}
+
+enum ProfesionalProfile {
+  string position = 0;
+  string company_name = 1;
+  string affiliation = 2;
+}
+
+message PersonInfo {
+  int32 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  Gender gender = 5;
+  optional Honorific honorific = 6;
+  optional string picture_url = 7;
+  optional ProfesionalProfile professional_profile = 8;
+  optional int user_id = 9;
+}
+
+message GetPersonByUserIdRequest {
+  int32 id = 1;
+}
+
+message GetPersonResponse {
+  PersonInfo person_info = 1;
+}
+
+service PersonService {
+  rpc GetPersonByUserId(GetPersonByUserIdRequest) returns (GetPersonResponse);
+}
