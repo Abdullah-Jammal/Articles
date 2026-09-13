@@ -1,5 +1,4 @@
-﻿using Blocks.Core.Extensions;
-
+﻿
 namespace Auth.Domain.Users;
 
 public partial class User
