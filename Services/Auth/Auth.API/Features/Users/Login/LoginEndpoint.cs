@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Net;
 using System.Security.Claims;
 
-namespace Auth.API.Features.Login;
+namespace Auth.API.Features.Users.Login;
 
 [AllowAnonymous]
 [HttpPost("login")]

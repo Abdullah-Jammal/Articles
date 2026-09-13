@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Article.Security\Article.Security.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Articles.Abstractions\Articles.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Articles.Grpc.Contracts\Articles.Grpc.Contracts.csproj" />
     <ProjectReference Include="..\..\..\buildingBlocks\Blocks.Exceptions\Blocks.Exceptions.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\BlocksAspNetCore\Blocks.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\Modules\EmailService\EmailService.Smtp\EmailService.Smtp.csproj" />

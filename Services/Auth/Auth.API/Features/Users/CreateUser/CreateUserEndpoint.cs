@@ -5,7 +5,7 @@ using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
-namespace Auth.API.Features.CreateUser;
+namespace Auth.API.Features.Users.CreateUser;
 
 [Authorize(Roles = Role.USERADMIN)]
 [HttpPost("users")]

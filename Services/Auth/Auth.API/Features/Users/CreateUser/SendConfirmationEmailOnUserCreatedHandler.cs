@@ -5,7 +5,7 @@ using FastEndpoints;
 using Flurl;
 using Microsoft.Extensions.Options;
 
-namespace Auth.API.Features.CreateUser;
+namespace Auth.API.Features.Users.CreateUser;
 
 public class SendConfirmationEmailOnUserCreatedHandler
     (IEmailService emailService, IOptions<EmailOptions> emailOptions, IHttpContextAccessor httpContextAccessor)
