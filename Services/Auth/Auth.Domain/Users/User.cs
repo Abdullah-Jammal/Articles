@@ -1,16 +1,17 @@
-﻿using Blocks.Domain.Entities;
+﻿using Auth.Domain.Persons;
+using Blocks.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace Auth.Domain.Users;
 
 public partial class User : IdentityUser<int>, IEntity
 {
-    public Persons.Person Person { get; private set; } = null!;
     public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
     public DateTime? LastLogin { get; set; }
     private List<UserRole> _userRoles = new();
+    public int PersonId { get; set; }
+    public Person Person { get; set; } = null!;
     public virtual IReadOnlyList<UserRole> UserRoles => _userRoles;
-
     private List<RefreshToken> _refreshTokens = new();
     public virtual IReadOnlyList<RefreshToken> RefreshTokens => _refreshTokens;
 }

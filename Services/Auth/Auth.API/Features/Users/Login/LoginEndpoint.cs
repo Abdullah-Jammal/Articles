@@ -1,4 +1,5 @@
 ﻿using Auth.Application;
+using Auth.Persistence.Repositories;
 using Blocks.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,14 +10,17 @@ namespace Auth.API.Features.Users.Login;
 
 [AllowAnonymous]
 [HttpPost("login")]
-public class LoginEndpoint(UserManager<User> userManager,
+public class LoginEndpoint(PersonRepository personRepository,
+    UserManager<User> userManager,
     SignInManager<User> signInManager, TokenFactory tokenFactory) : Endpoint<LoginCommand, LoginResponse>
 {
     public override async Task HandleAsync(LoginCommand command, CancellationToken ct)
     {
-        var user = await userManager.FindByEmailAsync(command.Email);
-        if (user is null)
-            ThrowError("Invalid email or password.", (int)HttpStatusCode.BadRequest);
+        var person = Guard.NotFount(
+            await personRepository.GetByEmailAsync(command.Email)
+        );
+
+        var user = Guard.NotFount(person?.User);
 
         var result = await signInManager.CheckPasswordSignInAsync(user, command.Password, lockoutOnFailure: false);
         if (!result.Succeeded)

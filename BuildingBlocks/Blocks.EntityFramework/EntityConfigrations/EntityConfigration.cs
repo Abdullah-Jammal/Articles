@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blocks.EntityFramework.EntityConfigrations;
+namespace Blocks.EntityFrameworkCore.EntityConfigrations;
 
 public abstract class EntityConfigration<T> : IEntityTypeConfiguration<T>
    where T : class, IEntity

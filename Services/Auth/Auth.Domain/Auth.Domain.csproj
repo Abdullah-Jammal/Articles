@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Users\Enums\**" />
+    <EmbeddedResource Remove="Users\Enums\**" />
+    <None Remove="Users\Enums\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Blocks.Core\Blocks.Core.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Articles.Abstractions\Articles.Abstractions.csproj" />
@@ -14,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Enums\" />
     <Folder Include="Users\ValueObjects\" />
   </ItemGroup>
 

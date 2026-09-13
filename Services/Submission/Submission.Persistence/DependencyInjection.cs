@@ -1,4 +1,4 @@
-﻿using Blocks.EntityFramework;
+﻿using Blocks.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
