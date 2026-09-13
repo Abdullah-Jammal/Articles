@@ -1,12 +1,12 @@
-<Solution>
+﻿<Solution>
   <Folder Name="/BuildingBlocks/">
     <Project Path="BuildingBlocks/Article.Security/Article.Security.csproj" Id="a30c4289-4318-4a73-9557-e0e010a3127e" />
     <Project Path="BuildingBlocks/Articles.Abstractions/Articles.Abstractions.csproj" Id="c749a2fe-6bba-4fe0-b769-369741170c5d" />
     <Project Path="BuildingBlocks/Articles.Grpc.Contracts/Articles.Grpc.Contracts.csproj" Id="de1e5fba-82c6-4643-a014-331e63390973" />
-    <Project Path="buildingBlocks/Blocks.Core/Blocks.Core.csproj" Id="f644e397-5758-41ae-bf29-25437bbee8bf" />
+    <Project Path="BuildingBlocks/Blocks.Core/Blocks.Core.csproj" Id="f644e397-5758-41ae-bf29-25437bbee8bf" />
     <Project Path="BuildingBlocks/Blocks.Domain/Blocks.Domain.csproj" Id="b5f4b3a4-95b7-4fc9-b9cb-f06dab4804fe" />
     <Project Path="BuildingBlocks/Blocks.EntityFramework/Blocks.EntityFramework.csproj" Id="766730aa-7b22-48da-9b38-f1ea049d8aee" />
-    <Project Path="buildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" Id="07840798-ea9e-4d78-8724-7771ea28e0a3" />
+    <Project Path="BuildingBlocks/Blocks.Exceptions/Blocks.Exceptions.csproj" Id="07840798-ea9e-4d78-8724-7771ea28e0a3" />
     <Project Path="BuildingBlocks/Blocks.MediatR/Blocks.MediatR.csproj" Id="a2dbebdf-4702-4711-a0cd-b036200c4c4a" />
     <Project Path="BuildingBlocks/Blocks.Redis/Blocks.Redis.csproj" Id="c54077dc-5c74-475c-9e61-ce88748c61cb" />
     <Project Path="BuildingBlocks/BlocksAspNetCore/Blocks.AspNetCore.csproj" Id="cbd0f1c8-1188-4cca-8a45-ee0eace6242e" />
@@ -14,7 +14,7 @@
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/EmailService/">
     <Project Path="Modules/EmailService/EmailService.Smtp/EmailService.Smtp.csproj" Id="be5fb947-963e-43f3-b400-ec274230a9af" />
-    <Project Path="src/Modules/EmailService/EmailService.Contracts/EmailService.Contracts.csproj" Id="396f61fb-80cb-4886-9c3f-45c17a43517b" />
+    <Project Path="Modules/EmailService/EmailService.Contracts/EmailService.Contracts.csproj" Id="396f61fb-80cb-4886-9c3f-45c17a43517b" />
   </Folder>
   <Folder Name="/Modules/FileStorage/">
     <Project Path="Modules/FileStorage/FileStorage.Contracts/FileStorage.Contracts.csproj" Id="fd3faff1-6d4c-4dc6-b00f-f1a4a9724c26" />
@@ -37,5 +37,8 @@
     <Project Path="Services/Submission/Submission.Application/Submission.Application.csproj" Id="fb5ad8d4-efc8-4da8-beac-85baa6cd4a6b" />
     <Project Path="Services/Submission/Submission.Domain/Submission.Domain.csproj" Id="c94e1a7d-1652-49bd-8efa-011224b0a5fc" />
     <Project Path="Services/Submission/Submission.Persistence/Submission.Persistence.csproj" Id="da408e98-1aa8-4cb1-b055-059b3f0bf357" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Articles.RegressionTests/Articles.RegressionTests.csproj" />
   </Folder>
 </Solution>

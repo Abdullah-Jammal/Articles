@@ -1,4 +1,6 @@
 ﻿
+using Blocks.Core.Extensions;
+
 namespace Auth.Domain.Users;
 
 public partial class User
@@ -12,6 +14,7 @@ public partial class User
 
         var user = new User
         {
+            Person = Persons.Person.Create(userInfo),
             UserName = userInfo.Email,
             Email = userInfo.Email,
             PhoneNumber = userInfo.PhoneNumber,

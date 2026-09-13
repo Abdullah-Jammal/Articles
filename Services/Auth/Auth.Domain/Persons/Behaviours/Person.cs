@@ -12,7 +12,7 @@ public partial class Person
             FirstName = userInfo.FirstName,
             LastName = userInfo.LastName,
             Gender = userInfo.Gender,
-            ProfessionalProfile = ProfessionalProfile.Create(userInfo.Affiliation, userInfo.CompanyName, userInfo.Position),
+            ProfessionalProfile = ProfessionalProfile.Create(userInfo.Position, userInfo.CompanyName, userInfo.Affiliation),
             PictureUrl = userInfo.PictureUrl,
             Honorific = HonorificTile.Create(userInfo.Honorific),
         };

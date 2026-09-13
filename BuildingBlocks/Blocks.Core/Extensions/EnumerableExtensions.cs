@@ -3,8 +3,8 @@
 public static class EnumerableExtensions
 {
     public static bool IsEmpty<T>(this IEnumerable<T> enumerable)
-        => enumerable.Any();
+        => !enumerable.Any();
 
-    public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable)
+    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
     => enumerable == null || !enumerable.Any();
 }

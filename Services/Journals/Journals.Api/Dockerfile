@@ -1,4 +1,4 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+﻿# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
@@ -11,9 +11,8 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Services/Journals/Journals.Api/Journals.Api.csproj", "Services/Journals/Journals.Api/"]
-RUN dotnet restore "./Services/Journals/Journals.Api/Journals.Api.csproj"
 COPY . .
+RUN dotnet restore "./Services/Journals/Journals.Api/Journals.Api.csproj"
 WORKDIR "/src/Services/Journals/Journals.Api"
 RUN dotnet build "./Journals.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 

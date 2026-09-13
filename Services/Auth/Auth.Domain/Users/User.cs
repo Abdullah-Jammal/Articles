@@ -5,6 +5,7 @@ namespace Auth.Domain.Users;
 
 public partial class User : IdentityUser<int>, IEntity
 {
+    public Persons.Person Person { get; private set; } = null!;
     public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
     public DateTime? LastLogin { get; set; }
     private List<UserRole> _userRoles = new();

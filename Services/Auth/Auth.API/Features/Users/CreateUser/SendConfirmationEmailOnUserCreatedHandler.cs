@@ -4,6 +4,7 @@ using EmailService.Contracts;
 using FastEndpoints;
 using Flurl;
 using Microsoft.Extensions.Options;
+using System.Net;
 
 namespace Auth.API.Features.Users.CreateUser;
 
@@ -22,13 +23,15 @@ public class SendConfirmationEmailOnUserCreatedHandler
 
     public EmailMessage BuildConfirmationEmail(User user, string resetLink, string fromEmailAddress)
     {
-        const string ConfirmationEmail = "Welcome to Our Service! Please Confirm Your Email Address";
+        var email = user.Email ?? throw new InvalidOperationException("Cannot send a confirmation email to a user without an email address.");
+        var content = $"<p>Hello {WebUtility.HtmlEncode(user.Person.FullName)},</p>" +
+            $"<p>Welcome! <a href=\"{WebUtility.HtmlEncode(resetLink)}\">Set your password</a> to get started.</p>";
 
         return new EmailMessage(
             "Welcome to Our Service! Please Confirm Your Email Address",
-            new Content(ContentType.Html, string.Format(ConfirmationEmail, user.FullName, resetLink)),
-            new EmailAddress(fromEmailAddress, "Our Service Team"),
-            new List<EmailAddress> { new EmailAddress(user.Email, $"{user.FirstName} {user.LastName}") }
+            new Content(ContentType.Html, content),
+            new EmailAddress("Our Service Team", fromEmailAddress),
+            new List<EmailAddress> { new EmailAddress(user.Person.FullName, email) }
             );
     }
 }

@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Modules\EmailService\EmailService.Contracts\EmailService.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Blocks.Core\Blocks.Core.csproj" />
+    <ProjectReference Include="..\EmailService.Contracts\EmailService.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

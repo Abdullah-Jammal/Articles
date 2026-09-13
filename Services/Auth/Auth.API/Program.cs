@@ -1,4 +1,4 @@
-using Auth.API;
+﻿using Auth.API;
 using Auth.Persistence;
 using FastEndpoints;
 using FastEndpoints.Swagger;
@@ -19,6 +19,8 @@ app.UseSwagger()
     .UseSwaggerUI()
     .UseHttpsRedirection()
     .UseRouting()
+    .UseAuthentication()
+    .UseAuthorization()
     .UseFastEndpoints()
     .UseSwaggerGen();
 

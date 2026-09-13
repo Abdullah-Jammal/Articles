@@ -35,21 +35,22 @@ public class TokenFactory(IOptions<JwtOptions> jwtOptions, IHttpContextAccessor 
     public string GenerateJwtToken(User user, IEnumerable<string> roles, IEnumerable<Claim> additionalCalims)
     {
         var jwtSettings = jwtOptions.Value;
+        var email = user.Email ?? throw new InvalidOperationException("Cannot issue a token for a user without an email address.");
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(JwtRegisteredClaimNames.Email, email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToUnixEpochDate().ToString(), ClaimValueTypes.Integer64),
 
-            new Claim(ClaimTypes.Name, user.FullName),
-            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Name, user.Person.FullName),
+            new Claim(ClaimTypes.Email, email),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
         }
         .Concat(roles.Select(role => new Claim(ClaimTypes.Role, role)))
         .Concat(additionalCalims);
 
-        var secretKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("YourSuperSecretKeyHere"));
+        var secretKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtSettings.SecretKey));
         var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
         var jwtToken = new JwtSecurityToken(
